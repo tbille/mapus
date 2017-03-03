@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Ma fac">
+        <menu>
+            <item
+                android:id="@+id/nav_geoloc"
+                android:icon="@drawable/ic_menu_geoloc"
+                android:title="Géolocalisation" />
+            <item
+                android:id="@+id/nav_ru"
+                android:icon="@drawable/ic_menu_ru"
+                android:title="Occupation des RU" />
+            <item
+                android:id="@+id/nav_anomalie"
+                android:icon="@drawable/ic_menu_anomalie"
+                android:title="Signaler une anomalie" />
+        </menu>
+    </item>
+
+    <item android:title="Mes cours">
+        <menu>
+            <item
+                android:id="@+id/nav_edt"
+                android:icon="@drawable/ic_menu_edt"
+                android:title="Mon emploi du temps" />
+            <item
+                android:id="@+id/nav_qrcode"
+                android:icon="@drawable/ic_menu_qrcode"
+                android:title="Scanner un QR Code" />
+        </menu>
+    </item>
+
+    <item android:title="Configuration">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_menu_settings"
+                android:title="Configuration" />
+            <item
+                android:id="@+id/nav_informations"
+                android:icon="@drawable/ic_menu_informations"
+                android:title="Informations" />
+        </menu>
+    </item>
+
+</menu>
