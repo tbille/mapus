@@ -1,0 +1,9 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_geoloc" type="drawable">@drawable/ic_my_location_red_400_24dp</item>
+    <item name="ic_menu_ru" type="drawable">@drawable/ic_local_dining_red_400_24dp</item>
+    <item name="ic_menu_anomalie" type="drawable">@drawable/ic_warning_red_400_24dp</item>
+    <item name="ic_menu_edt" type="drawable">@drawable/ic_date_range_red_400_24dp</item>
+    <item name="ic_menu_qrcode" type="drawable">@drawable/qrcode</item>
+    <item name="ic_menu_settings" type="drawable">@drawable/ic_settings_red_400_24dp</item>
+    <item name="ic_menu_informations" type="drawable">@drawable/ic_info_red_400_24dp</item>
+</resources>
