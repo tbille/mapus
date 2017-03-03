@@ -2,8 +2,20 @@
     <string name="app_name">Mapus</string>
     <string name="title_activity_main">Mapus</string>
 
+    <string name="title_fragment_geoloc">Géolocalisation</string>
+    <string name="title_fragment_anomalie">Signaler une anomalie</string>
+    <string name="title_fragment_ru">Restaurants Universitaires</string>
+    <string name="title_fragment_edt">Emploi du temps</string>
+    <string name="title_fragment_qrcode">Scanner un QR Code</string>
+    <string name="title_fragment_settings">Réglages</string>
+    <string name="title_fragment_informations">Informations</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="hello_geoloc_fragment">Hello geoloc fragment</string>
+    <string name="hello_infos_fragment">Hello informations fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
