@@ -16,6 +16,10 @@ public class Event {
     private String salle;
     private String notes;
 
+    public Event()  {
+
+    }
+
     public Event(int day, String prettyTime, String startTime, String endTime, String categorie, String prettyWeek, int weekNumber, String matiere, String group, String salle, String notes) {
         this.day = day;
         this.prettyTime = prettyTime;
@@ -28,21 +32,6 @@ public class Event {
         this.group = group;
         this.salle = salle;
         this.notes = notes;
-    }
-
-    public Event(int day, String prettyTime, String startTime, String endTime, String categorie, String prettyWeek, String rawWeek, String matiere, String group, String salle, String notes) {
-        this.day = day;
-        this.prettyTime = prettyTime;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.categorie = categorie;
-        this.prettyWeek = prettyWeek;
-        this.matiere = matiere;
-        this.group = group;
-        this.salle = salle;
-        this.notes = notes;
-
-        this.weekNumber = rawWeek.indexOf("Y");
     }
 
     public int getDay() {
