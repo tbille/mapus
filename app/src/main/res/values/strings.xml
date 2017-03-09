@@ -7,7 +7,7 @@
     <string name="title_fragment_ru">Restaurants Universitaires</string>
     <string name="title_fragment_edt">Emploi du temps</string>
     <string name="title_fragment_qrcode">Scanner un QR Code</string>
-    <string name="title_fragment_settings">Réglages</string>
+    <string name="title_fragment_settings">Paramètres</string>
     <string name="title_fragment_informations">Informations</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
