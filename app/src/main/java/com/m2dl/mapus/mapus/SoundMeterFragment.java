@@ -84,8 +84,6 @@ public class SoundMeterFragment extends Fragment {
             updateSoundMeterDisplay();
             mHandler.postDelayed(this, REFRESH_SOUND_DURATION);
         }
-
-        ;
     };
 
     public int getMaxSound() {
@@ -111,7 +109,6 @@ public class SoundMeterFragment extends Fragment {
             setMaxSound(dbValue);
         }
         soundBar.setProgress(dbValue);
-
     }
 
 }

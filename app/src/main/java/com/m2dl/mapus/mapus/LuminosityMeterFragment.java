@@ -1,6 +1,5 @@
 package com.m2dl.mapus.mapus;
 
-
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -13,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +30,8 @@ public class LuminosityMeterFragment extends Fragment implements SensorEventList
     }
 
     public static LuminosityMeterFragment newInstance() {
-        LuminosityMeterFragment fragment = new LuminosityMeterFragment();
-        return fragment;
+        LuminosityMeterFragment luminosityMeterFragment = new LuminosityMeterFragment();
+        return luminosityMeterFragment;
     }
 
     @Override
@@ -43,7 +41,6 @@ public class LuminosityMeterFragment extends Fragment implements SensorEventList
         mSensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         mLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
