@@ -3,14 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.m2dl.mapus.mapus.InformationsFragment">
+    tools:context="com.m2dl.mapus.mapus.InformationsFragment"
+    android:padding="0dp">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,119 +15,127 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_margin="@dimen/activity_horizontal_margin">
 
-            <TextView
-                android:text="@string/developpers_title"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developpers_title"
-                android:gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:paddingBottom="16dp" />
+                android:layout_marginBottom="16dp"
+                android:weightSum="1">
 
-            <TextView
-                android:text="@string/developpers_name_1"
+                <TextView
+                    android:text="@string/developpers_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/developpers_title"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:paddingBottom="16dp" />
+
+                <TextView
+                    android:text="@string/developpers_name_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/developpers_name_1" />
+
+                <TextView
+                    android:text="@string/developpers_name_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/developpers_name_2" />
+
+                <TextView
+                    android:text="@string/developpers_name_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/developpers_name_3" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    app:srcCompat="@drawable/team"
+                    android:id="@+id/devloppers_picture"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.55"
+                    android:layout_height="200dp" />
+
+                <ImageView
+                    android:layout_width="188dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/logo_m2dl"
+                    android:id="@+id/logo_m2dl"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/developpers_name_1" />
+                android:layout_marginBottom="16dp">
 
-            <TextView
-                android:text="@string/developpers_name_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/developpers_name_2" />
+                <TextView
+                    android:text="@string/sensors_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sensors_title"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:paddingBottom="16dp" />
 
-            <TextView
-                android:text="@string/developpers_name_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/developpers_name_3" />
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:stretchColumns="0,1">
 
-            <!-- TODO add group picture to drawable and change imageview src-->
-            <ImageView
-                android:layout_width="278dp"
-                app:srcCompat="@drawable/ic_people_black_24dp"
-                android:id="@+id/devloppers_picture"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_height="50dp" />
+                    <TableRow>
 
-            <ImageView
-                android:layout_width="188dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/logo_m2dl"
-                android:id="@+id/logo_m2dl"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:layout_gravity="center" />
+                        <TextView
+                            android:text="@string/sensors_lumnisoty_label"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sensors_lumnisoty_label"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                        <TextView
+                            android:text="@string/sensors_sound_label"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sensors_sound_label"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <fragment
+                            android:name="com.m2dl.mapus.mapus.LuminosityMeterFragment"
+                            android:id="@+id/luminosity_meter_fragment"
+                            tools:layout="@layout/fragment_luminosity_meter"
+                            android:layout_height="match_parent"></fragment>
+
+                        <fragment
+                            android:name="com.m2dl.mapus.mapus.SoundMeterFragment"
+                            android:id="@+id/sound_meter_fragment"
+                            tools:layout="@layout/fragment_sound_meter"
+                            android:layout_height="match_parent"></fragment>
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:text="@string/sensors_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/sensors_title"
-                android:gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:paddingBottom="16dp" />
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:baselineAligned="false"
-                android:stretchColumns="0,1">
-
-                <TableRow>
-
-                    <TextView
-                        android:text="@string/sensors_lumnisoty_label"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/sensors_lumnisoty_label"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    <TextView
-                        android:text="@string/sensors_sound_label"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/sensors_sound_label"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-                </TableRow>
-
-                <TableRow>
-
-                    <fragment
-                        android:name="com.m2dl.mapus.mapus.LuminosityMeterFragment"
-                        android:id="@+id/luminosity_meter_fragment"
-                        tools:layout="@layout/fragment_luminosity_meter"
-                        android:layout_height="match_parent"></fragment>
-
-                    <fragment
-                        android:name="com.m2dl.mapus.mapus.SoundMeterFragment"
-                        android:id="@+id/sound_meter_fragment"
-                        tools:layout="@layout/fragment_sound_meter"
-                        android:layout_height="match_parent"></fragment>
-
-                </TableRow>
-
-            </TableLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
