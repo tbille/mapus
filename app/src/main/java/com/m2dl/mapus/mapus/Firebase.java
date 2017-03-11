@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import static com.google.android.gms.internal.zzs.TAG;
 
 public class Firebase {
 
@@ -36,7 +35,7 @@ public class Firebase {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                Log.w("Firebase", "loadPost:onCancelled", databaseError.toException());
             }
         });
     }
