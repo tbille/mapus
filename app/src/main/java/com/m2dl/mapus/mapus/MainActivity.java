@@ -1,5 +1,8 @@
 package com.m2dl.mapus.mapus;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -7,12 +10,14 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v4.view.GravityCompat;
@@ -31,6 +36,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.google.android.gms.vision.barcode.Barcode;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -47,6 +54,15 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         this.toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(this.toolbar);
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -121,7 +137,7 @@ public class MainActivity extends AppCompatActivity
                 changeFragment(emploiDuTempsFragment);
                 break;
             case R.id.nav_qrcode:
-                QrCodeFragment qrCodeFragment = QrCodeFragment.newInstance("Var 1", "Var 2");
+                QrCodeFragment qrCodeFragment = QrCodeFragment.newInstance();
                 changeFragment(qrCodeFragment);
                 break;
             case R.id.nav_settings:
