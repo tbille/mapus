@@ -1,4 +1,4 @@
-package com.m2dl.mapus.mapus;
+package com.m2dl.mapus.mapus.firebase;
 
 import android.util.Log;
 
@@ -14,12 +14,12 @@ import java.util.Map;
 import java.util.UUID;
 
 
-public class Firebase {
+public class BatimentDataSource {
 
     private DatabaseReference mDatabase;
     private Map<UUID, Batiment> batiments = new HashMap<>();
 
-    public Firebase() {
+    public BatimentDataSource() {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mDatabase.child("batiments").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -35,7 +35,7 @@ public class Firebase {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.w("Firebase", "loadPost:onCancelled", databaseError.toException());
+                Log.w("BatimentDataSource", "loadPost:onCancelled", databaseError.toException());
             }
         });
     }
