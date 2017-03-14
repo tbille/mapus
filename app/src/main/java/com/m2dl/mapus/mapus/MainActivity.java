@@ -111,8 +111,6 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_anomalie:
                 takePictureAnomaly();
-                //AnomalieFragment anomalieFragment = AnomalieFragment.newInstance("Var 1", "Var 2");
-                //changeFragment(anomalieFragment);
                 break;
             case R.id.nav_ru:
                 OccupationRuFragment occupationRuFragment = OccupationRuFragment.newInstance("Var 1", "Var 2");
@@ -194,10 +192,7 @@ public class MainActivity extends AppCompatActivity
             case 1: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
                     Log.d("CAMERA", "onRequestPermissionsResult: PERMISSION ACCORDEE");
-
-
                     askPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
 
                 } else {
