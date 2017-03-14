@@ -27,8 +27,9 @@ public class AnomalieDataSource {
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
-    public void addNewAnomalie(String path, final Anomalie anomalie) {
-        Uri file = Uri.fromFile(new File(path));
+    public void addNewAnomalie(Uri uri, final Anomalie anomalie) {
+        //Uri file = Uri.fromFile(new File(path));
+        Uri file = uri;
         StorageReference riversRef = storageRef.child("images/"+file.getLastPathSegment());
         UploadTask uploadTask = riversRef.putFile(file);
 

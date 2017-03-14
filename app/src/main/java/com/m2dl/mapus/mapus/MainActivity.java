@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     static final int REQUEST_TAKE_PHOTO = 1;
     private String mCurrentPhotoPath;
     private Uri imageUri;
+    private String imageFileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void changeFragment(Fragment fragment) {
+    public void changeFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,
@@ -153,26 +154,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void takePictureAnomaly() {
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+        imageFileName = "ANOMALY_" + timeStamp;
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        File photo = new File(Environment.getExternalStorageDirectory(),  "Pic.jpg");
+        File photo = new File(Environment.getExternalStorageDirectory(),  imageFileName+".jpg");
         intent.putExtra(MediaStore.EXTRA_OUTPUT,
                 Uri.fromFile(photo));
         imageUri = Uri.fromFile(photo);
         startActivityForResult(intent, REQUEST_TAKE_PHOTO);
-    }
-
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = "coucou";
-        String imageFileName = "ANOMALY_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
-        mCurrentPhotoPath = image.getAbsolutePath();
-        return image;
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -182,16 +171,13 @@ public class MainActivity extends AppCompatActivity
                 if (resultCode == Activity.RESULT_OK) {
                     Uri selectedImage = imageUri;
                     getContentResolver().notifyChange(selectedImage, null);
-                    //ImageView imageView = (ImageView) findViewById(R.id.ImageView);
                     ContentResolver cr = getContentResolver();
                     Bitmap bitmap;
                     try {
                         bitmap = android.provider.MediaStore.Images.Media
                                 .getBitmap(cr, selectedImage);
-
-                        //imageView.setImageBitmap(bitmap);
                         Log.d("MAIN", "onActivityResult: " + selectedImage.toString());
-                        changeFragment(AnomalieFragment.newInstance(selectedImage.toString(), ""));
+                        changeFragment(AnomalieFragment.newInstance(selectedImage.toString(), imageFileName));
                     } catch (Exception e) {
                         Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
                                 .show();

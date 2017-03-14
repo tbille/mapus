@@ -77,7 +77,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button4"
+                android:id="@+id/anomaly_cancel"
                 android:layout_weight="1"
                 style="@style/Widget.AppCompat.Button"
                 android:textColor="?attr/actionMenuTextColor"
@@ -86,7 +86,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button3"
+                android:id="@+id/anomaly_confirm"
                 android:layout_weight="1"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:textColor="@android:color/white"
