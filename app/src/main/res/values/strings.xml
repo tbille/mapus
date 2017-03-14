@@ -28,4 +28,10 @@
     <string name="sensors_title">Capteurs</string>
     <string name="sensors_lumnisoty_label">Luminosité</string>
     <string name="sensors_sound_label">Son</string>
+    <string name="back_anomalie">Annuler</string>
+    <string name="confirm_anomalie">Envoyer</string>
+    <string name="anomalie_degree_1">Confort</string>
+    <string name="anomalie_degree_2">Problème</string>
+    <string name="anomalie_degree_3">Danger</string>
+    <string name="anomalie_degree_description">Gravité de l\'anomalie :</string>
 </resources>

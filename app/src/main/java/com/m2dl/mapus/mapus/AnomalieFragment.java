@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 
 import java.io.File;
 import java.io.IOException;
@@ -74,6 +75,7 @@ public class AnomalieFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_anomalie, container, false);
         ImageView photo = (ImageView) view.findViewById(R.id.previewAnomaly);
+        RadioGroup level = (RadioGroup) view.findViewById(R.id.radio_group);
         Uri uri = Uri.parse(mParam1);
         photo.setImageURI(uri);
         return view;

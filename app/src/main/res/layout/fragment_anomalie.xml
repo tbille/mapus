@@ -5,44 +5,69 @@
     android:layout_height="match_parent"
     tools:context="com.m2dl.mapus.mapus.AnomalieFragment">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:background="@android:color/black">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="332dp"
             app:srcCompat="@drawable/team"
-            android:id="@+id/previewAnomaly" />
+            android:id="@+id/previewAnomaly"
+            android:layout_height="332dp" />
+    </FrameLayout>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:text="@string/anomalie_degree_description"
             android:layout_width="match_parent"
-            android:layout_height="84dp"
-            android:layout_weight="0.71">
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
 
             <RadioButton
-                android:text="RadioButton"
-                android:layout_width="wrap_content"
+                android:id="@+id/radio1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton9"
-                android:layout_weight="1" />
+                android:checked="true"
+                android:buttonTint="?attr/actionModeSplitBackground"
+                android:text="@string/anomalie_degree_1" />
 
             <RadioButton
-                android:text="RadioButton"
-                android:layout_width="wrap_content"
+                android:id="@+id/radio2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton8"
-                android:layout_weight="1" />
+                android:checked="true"
+                android:buttonTint="?attr/actionModeSplitBackground"
+                android:text="@string/anomalie_degree_2" />
 
             <RadioButton
-                android:text="RadioButton"
-                android:layout_width="wrap_content"
+                android:id="@+id/radio3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton7"
-                android:layout_weight="1" />
-        </LinearLayout>
+                android:buttonTint="?attr/actionModeSplitBackground"
+                android:text="@string/anomalie_degree_3" />
+        </RadioGroup>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -50,18 +75,24 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:text="Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button4"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/Widget.AppCompat.Button"
+                android:textColor="?attr/actionMenuTextColor"
+                android:text="@string/back_anomalie" />
 
             <Button
-                android:text="Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button3"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textColor="@android:color/white"
+                android:text="@string/confirm_anomalie"
+                android:textColorLink="?attr/actionModeSplitBackground"
+                android:backgroundTint="@color/colorPrimary" />
         </LinearLayout>
 
     </LinearLayout>
