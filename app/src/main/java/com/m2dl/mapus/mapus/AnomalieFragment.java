@@ -1,11 +1,22 @@
 package com.m2dl.mapus.mapus;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -22,7 +33,8 @@ public class AnomalieFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    static final int REQUEST_TAKE_PHOTO = 1;
+    private String mCurrentPhotoPath;
 
     public AnomalieFragment() {
         // Required empty public constructor
@@ -60,7 +72,13 @@ public class AnomalieFragment extends Fragment {
                              Bundle savedInstanceState) {
         getActivity().setTitle(R.string.title_fragment_anomalie);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_anomalie, container, false);
+        View view = inflater.inflate(R.layout.fragment_anomalie, container, false);
+        ImageView photo = (ImageView) view.findViewById(R.id.previewAnomaly);
+        Uri uri = Uri.parse(mParam1);
+        photo.setImageURI(uri);
+        return view;
     }
+
+
 
 }
