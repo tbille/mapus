@@ -39,4 +39,8 @@
     <string name="anomalie_degree_2">Problème</string>
     <string name="anomalie_degree_3">Danger</string>
     <string name="anomalie_degree_description">Gravité de l\'anomalie :</string>
+    <string name="ru1_label">RU 1</string>
+    <string name="ru2_label">RU 2</string>
+    <string name="ru_title">Fréquentation en temps réel</string>
+    <string name="ru_graph_title">Taux de fréquentation moyen</string>
 </resources>

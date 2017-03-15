@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
                 takePictureAnomaly();
                 break;
             case R.id.nav_ru:
-                OccupationRuFragment occupationRuFragment = OccupationRuFragment.newInstance("Var 1", "Var 2");
+                OccupationRuFragment occupationRuFragment = OccupationRuFragment.newInstance();
                 changeFragment(occupationRuFragment);
                 break;
             case R.id.nav_edt:
