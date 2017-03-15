@@ -40,9 +40,9 @@ public class Firebase {
         });
     }
 
-    public void writeNewBatiment(String nom, Double longitude, Double lattitude) {
+    public void writeNewBatiment(String nom, Double longitude, Double lattitude, String snippet) {
         UUID uuid = UUID.randomUUID();
-        Batiment batiment = new Batiment(nom, longitude, lattitude);
+        Batiment batiment = new Batiment(nom, longitude, lattitude, snippet);
         batiments.put(uuid, batiment);
 
         mDatabase.child("batiments").child(uuid.toString()).setValue(batiment);

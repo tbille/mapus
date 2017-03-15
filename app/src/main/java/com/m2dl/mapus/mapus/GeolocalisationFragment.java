@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.m2dl.mapus.mapus.firebase.BatimentDataSource;
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -90,11 +92,7 @@ public class GeolocalisationFragment extends Fragment {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
                 map = mapboxMap;
-
-                mapboxMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(43.56274, 1.46920))
-                        .title("El toto")
-                        .snippet("Un animal sauvage en liberté !!!"));
+                BatimentDataSource batimentDataSource = new BatimentDataSource(map);
             }
         });
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

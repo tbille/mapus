@@ -1,5 +1,7 @@
 package com.m2dl.mapus.mapus;
 
+import android.*;
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -234,6 +236,39 @@ public class MainActivity extends AppCompatActivity
                 return;
             }
             case 3: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Log.d("CAMERA", "onRequestPermissionsResult: SON PERMISSION ACCORDEE");
+                    askPermission(android.Manifest.permission.ACCESS_FINE_LOCATION, new String[]{
+                            android.Manifest.permission.ACCESS_FINE_LOCATION}, 4);
+
+                } else {
+                    Log.d("CAMERA", "onRequestPermissionsResult: SON PERMISSION REFUSEE");
+                    Toast.makeText(this, "Vous devez accepter les permissions pour continuer.", Toast.LENGTH_LONG)
+                            .show();
+                    finish();
+                }
+                return;
+            }
+            case 4: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Log.d("CAMERA", "onRequestPermissionsResult: SON PERMISSION ACCORDEE");
+                    askPermission(Manifest.permission.ACCESS_COARSE_LOCATION, new String[]{
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION}, 5);
+
+                } else {
+                    Log.d("CAMERA", "onRequestPermissionsResult: SON PERMISSION REFUSEE");
+                    Toast.makeText(this, "Vous devez accepter les permissions pour continuer.", Toast.LENGTH_LONG)
+                            .show();
+                    finish();
+                }
+                return;
+            }
+
+            case 5: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
