@@ -13,6 +13,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="access_token">pk.eyJ1IjoiY2FydGVwaXBpIiwiYSI6ImNpenRzemk1MjAwMTUycXFzeHBodDZ0NXQifQ.3w5a-KYjVk8YHBoHVGmB2Q</string>
     <string name="hello_geoloc_fragment">Hello geoloc fragment</string>
     <string name="hello_infos_fragment">Hello informations fragment</string>
 

@@ -1,5 +1,6 @@
 package com.m2dl.mapus.mapus;
 
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.m2dl.mapus.mapus.firebase.AnomalieDataSource;
 import com.m2dl.mapus.mapus.model.Anomalie;
+import com.mapbox.mapboxsdk.location.LocationServices;
 
 
 /**
@@ -102,8 +104,12 @@ public class AnomalieFragment extends Fragment implements View.OnClickListener{
         RadioGroup level = (RadioGroup) this.getView().findViewById(R.id.radio_group);
         String gravite = (String)((RadioButton) this.getView().findViewById(level.getCheckedRadioButtonId())).getText();
         //TODO récupérer position utilisateur
+
+        LocationServices locationServices;
+        locationServices = LocationServices.getLocationServices(this.getContext());
+        Location position = locationServices.getLastLocation();
         Uri uri = Uri.parse(imgUri);
-        Anomalie anomalie = new Anomalie(imgNom, 1., 1., gravite);
+        Anomalie anomalie = new Anomalie(imgNom, position.getLongitude(), position.getLatitude(), gravite);
         AnomalieDataSource sender = new AnomalieDataSource();
         sender.addNewAnomalie(uri, anomalie);
         goBack();
