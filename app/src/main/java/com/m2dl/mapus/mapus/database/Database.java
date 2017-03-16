@@ -43,15 +43,17 @@ public class Database extends SQLiteOpenHelper {
 
     public static final String TABLE_FORMATIONS = "formations";
     public static final String COLUMN_FORMATION = "formation";
+    public static final String COLUMN_URLFORMATION = "urlformation";
     public static final String COLUMN_GROUPE = "groupe";
-    public static final String COLUMN_URL = "url";
+    public static final String COLUMN_URLGROUPE = "urlgroupe";
 
     private static final String DATABASE_CREATE_FORMATION = "CREATE TABLE "
             + TABLE_FORMATIONS + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_FORMATION + " TEXT NOT NULL, "
+            + COLUMN_URLFORMATION + " TEXT NOT NULL, "
             + COLUMN_GROUPE + " TEXT NOT NULL, "
-            + COLUMN_URL + " TEXT NOT NULL"
+            + COLUMN_URLGROUPE + " TEXT NOT NULL"
             + ")";
 
 

@@ -2,6 +2,8 @@ package com.m2dl.mapus.mapus.edt;
 
 import android.os.AsyncTask;
 
+import com.m2dl.mapus.mapus.model.Formation;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,19 +13,22 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Classes extends AsyncTask<String, Void, Void> {
+public class Classes extends AsyncTask<Object, Void, Long> {
+    Map<String, Formation> formationsMap;
     @Override
-    protected Void doInBackground(String... params) {
+    protected Long doInBackground(Object... params) {
         try {
-            Document doc = Jsoup.connect(params[0]).get();
-            Elements formations = doc.select("event");
+            Formation formationParam = (Formation) params[0];
+            Document doc = Jsoup.connect(formationParam.getUrlFormation()).get();
+            Elements formations = doc.select("a[class=ttlink]");
 
-            Map<String, String> formationsMap = new HashMap<String, String>();
+            formationsMap = new HashMap<String, Formation>();
 
             for (Element formation:
                     formations) {
                 if (!formation.attr("href").isEmpty()) {
-                    formationsMap.put(formation.text(), formation.attr("href"));
+                    Formation tmp = new Formation(formation.attr("href").replace("html", "xml"), formationParam.getUrlFormation(), formationParam.getFormation(), formation.text());
+                    formationsMap.put(formation.text(), tmp);
                 }
             }
 
@@ -31,6 +36,10 @@ public class Classes extends AsyncTask<String, Void, Void> {
             e.printStackTrace();
         }
 
-        return null;
+        return new Long(1);
+    }
+
+    protected void onPostExecute(Long result) {
+
     }
 }

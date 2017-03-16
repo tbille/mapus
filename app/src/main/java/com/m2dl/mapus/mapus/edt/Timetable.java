@@ -11,8 +11,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-
 public class Timetable extends AsyncTask<Object, Void, Void> {
     @Override
     protected Void doInBackground(Object... params) {
@@ -20,7 +18,7 @@ public class Timetable extends AsyncTask<Object, Void, Void> {
             Formation formation = (Formation) params[0];
             EventDataSource db = (EventDataSource) params[1];
 
-            Document doc = Jsoup.connect(formation.getUrl()).get();
+            Document doc = Jsoup.connect(formation.getUrlGroupe()).get();
             Elements events = doc.select("event");
 
             db.deleteDatabase();
