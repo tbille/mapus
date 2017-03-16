@@ -11,7 +11,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity
     private String mCurrentPhotoPath;
     private Uri imageUri;
     private String imageFileName;
+    private boolean edtIsInit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +120,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -136,16 +140,21 @@ public class MainActivity extends AppCompatActivity
                 changeFragment(occupationRuFragment);
                 break;
             case R.id.nav_edt:
-                Date date = new Date();
-                EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance(date.toString());
-                changeFragment(emploiDuTempsFragment);
+                if (edtIsInit) {
+                    Date date = new Date();
+                    EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance(date.toString());
+                    changeFragment(emploiDuTempsFragment);
+                } else {
+                    SettingsFragment settingsFragment = SettingsFragment.newInstance();
+                    changeFragment(settingsFragment);
+                }
                 break;
             case R.id.nav_qrcode:
                 QrCodeFragment qrCodeFragment = QrCodeFragment.newInstance();
                 changeFragment(qrCodeFragment);
                 break;
             case R.id.nav_settings:
-                SettingsFragment settingsFragment = SettingsFragment.newInstance("Var 1", "Var 2");
+                SettingsFragment settingsFragment = SettingsFragment.newInstance();
                 changeFragment(settingsFragment);
                 break;
             case R.id.nav_informations:
@@ -286,6 +295,13 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+
+    public void edtIsDownload() {
+        edtIsInit = true;
+        EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance("Var 1", "Var 2");
+        changeFragment(emploiDuTempsFragment);
+    }
+
 
     @Override
     public void onDialogPositiveClick(DatePickerDialogFragment dialog) {

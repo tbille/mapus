@@ -18,8 +18,9 @@ public class FormationDataSource {
     private String[] allColumns = {
             db.COLUMN_ID,
             db.COLUMN_FORMATION,
+            db.COLUMN_URLFORMATION,
             db.COLUMN_GROUPE,
-            db.COLUMN_URL
+            db.COLUMN_URLGROUPE
     };
 
     public FormationDataSource(Context context) {
@@ -38,8 +39,9 @@ public class FormationDataSource {
         ContentValues values = new ContentValues();
 
         values.put(Database.COLUMN_FORMATION, formation.getFormation());
+        values.put(Database.COLUMN_URLFORMATION, formation.getFormation());
         values.put(Database.COLUMN_GROUPE, formation.getGroupe());
-        values.put(Database.COLUMN_URL, formation.getUrl());
+        values.put(Database.COLUMN_URLGROUPE, formation.getUrlGroupe());
 
         database.insert(
                 Database.TABLE_FORMATIONS,
@@ -69,8 +71,9 @@ public class FormationDataSource {
     private Formation cursorToFormation(Cursor cursor) {
         Formation formation = new Formation();
         formation.setFormation(cursor.getString(1));
-        formation.setGroupe(cursor.getString(2));
-        formation.setUrl(cursor.getString(3));
+        formation.setUrlFormation(cursor.getString(2));
+        formation.setGroupe(cursor.getString(3));
+        formation.setUrlGroupe(cursor.getString(4));
 
         return formation;
     }

@@ -1,7 +1,9 @@
 package com.m2dl.mapus.mapus.edt;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
+import com.m2dl.mapus.mapus.SettingsFragment;
 import com.m2dl.mapus.mapus.database.EventDataSource;
 import com.m2dl.mapus.mapus.model.Event;
 import com.m2dl.mapus.mapus.model.Formation;
@@ -11,20 +13,24 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
+public class Timetable extends AsyncTask<Object, Void, Long> {
+    private SettingsFragment settingsFragment;
 
-public class Timetable extends AsyncTask<Object, Void, Void> {
     @Override
-    protected Void doInBackground(Object... params) {
+    protected Long doInBackground(Object... params) {
         try {
-            Formation formation = (Formation) params[0];
-            EventDataSource db = (EventDataSource) params[1];
+            settingsFragment = (SettingsFragment) params[0];
+            Formation formation = (Formation) params[1];
+            EventDataSource db = (EventDataSource) params[2];
 
-            Document doc = Jsoup.connect(formation.getUrl()).get();
+            db.open();
+
+            Document doc = Jsoup.connect(formation.getUrlGroupe()).get();
             Elements events = doc.select("event");
 
             db.deleteDatabase();
             db.createDatabase();
+
 
             for (Element event :
                     events) {
@@ -34,6 +40,8 @@ public class Timetable extends AsyncTask<Object, Void, Void> {
                 Elements spans = doc.select("span[rawix=" + String.valueOf(position) + "]");
                 Element span = spans.get(0);
                 String week = span.select("title").text();
+
+                Log.d("DEBUG Timetable", "doInBackground: " + event.select("module").text());
 
                 db.createEvent(new Event(
                     Integer.valueOf(event.select("day").text()),
@@ -49,10 +57,21 @@ public class Timetable extends AsyncTask<Object, Void, Void> {
                     event.select("notes").text()
                 ));
             }
+            Log.d("DEBUG Timetable", "doInBackground: Fini");
+            db.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return null;
+        return new Long(1);
+    }
+
+    protected void onPostExecute(Long result) {
+        settingsFragment.edtIsDownload();
+    }
+
+    @Override
+    protected void onProgressUpdate(Void... values) {
+        super.onProgressUpdate(values);
     }
 }

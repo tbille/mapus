@@ -1,7 +1,8 @@
 package com.m2dl.mapus.mapus.model;
 
 public class Formation {
-    private String url;
+    private String urlGroupe;
+    private String urlFormation;
     private String formation;
     private String groupe;
 
@@ -9,30 +10,24 @@ public class Formation {
 
     }
 
-    public Formation(String formation) {
-        this.url = url;
+    public Formation(String urlFormation, String formation) {
+        this.urlFormation = urlFormation;
+        this.formation = formation;
+    }
+
+    public Formation(String urlGroupe, String urlFormation, String formation, String groupe) {
+        this.urlGroupe = urlGroupe;
+        this.urlFormation = urlFormation;
         this.formation = formation;
         this.groupe = groupe;
     }
 
-    public Formation(String formation, String groupe) {
-        this.url = url;
-        this.formation = formation;
-        this.groupe = groupe;
+    public String getUrlGroupe() {
+        return urlGroupe;
     }
 
-    public Formation(String formation, String groupe, String url) {
-        this.url = url;
-        this.formation = formation;
-        this.groupe = groupe;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrlGroupe(String urlGroupe) {
+        this.urlGroupe = urlGroupe;
     }
 
     public String getFormation() {
@@ -49,5 +44,23 @@ public class Formation {
 
     public void setGroupe(String groupe) {
         this.groupe = groupe;
+    }
+
+    public String getUrlFormation() {
+        return urlFormation;
+    }
+
+    public void setUrlFormation(String urlFormation) {
+        this.urlFormation = urlFormation;
+    }
+
+    @Override
+    public String toString() {
+        return "Formation{" +
+                "urlGroupe='" + urlGroupe + '\'' +
+                ", urlFormation='" + urlFormation + '\'' +
+                ", formation='" + formation + '\'' +
+                ", groupe='" + groupe + '\'' +
+                '}';
     }
 }
