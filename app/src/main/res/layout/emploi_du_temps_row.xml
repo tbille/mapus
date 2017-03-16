@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    app:layout_goneMarginLeft="10dp">
+
+
+    <TextView
+        android:text="Matiere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/matiere"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="normal|bold"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/matiere"
+        android:id="@+id/salle"
+        android:text="salle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:text="EndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/end_date"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/matiere"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:text="StartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/start_date"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_below="@+id/matiere"
+        android:layout_toStartOf="@+id/fleche"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:text="@string/fleche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fleche"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_below="@+id/matiere"
+        android:layout_toStartOf="@+id/end_date"
+        android:paddingBottom="10dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:textStyle="normal|bold" />
+</RelativeLayout>

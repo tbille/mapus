@@ -33,6 +33,8 @@
     <string name="sensors_title">Capteurs</string>
     <string name="sensors_lumnisoty_label">Luminosité</string>
     <string name="sensors_sound_label">Son</string>
+    <string name="back_calendar">Retour</string>
+    <string name="ok_calendar">Valider</string>
     <string name="back_anomalie">Annuler</string>
     <string name="confirm_anomalie">Envoyer</string>
     <string name="anomalie_degree_1">Confort</string>
@@ -43,4 +45,14 @@
     <string name="ru2_label">RU 2</string>
     <string name="ru_title">Fréquentation en temps réel</string>
     <string name="ru_graph_title">Taux de fréquentation moyen</string>
+    <string name="edt_settings_title">Emploi du temps</string>
+    <string name="edt_settings_formation_label">Formation</string>
+    <string name="edt_settings_licence_label">Licence</string>
+    <string name="edt_settings_master_label">Master</string>
+    <string name="edt_settings_group_label">Groupe</string>
+    <string name="licence_placeholder">Sélectionnez votre licence</string>
+    <string name="master_placeholder">Sélectionnez votre master</string>
+    <string name="groupe_placeholder">Sélectionnez votre groupe</string>
+    <string name="refresh_edt_btn">Récupérer l\'emploi du temps</string>
+    <string name="fleche">→</string>
 </resources>
