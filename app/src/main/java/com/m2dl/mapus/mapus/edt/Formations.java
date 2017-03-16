@@ -2,6 +2,7 @@ package com.m2dl.mapus.mapus.edt;
 
 import android.os.AsyncTask;
 
+import com.m2dl.mapus.mapus.SettingsFragment;
 import com.m2dl.mapus.mapus.model.Formation;
 
 import org.jsoup.Jsoup;
@@ -14,14 +15,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Formations extends AsyncTask<Void, Void, Long> {
+public class Formations extends AsyncTask<Object, Void, Long> {
 
     private String urlEdt = "http://edt.univ-tlse3.fr/";
     private ArrayList<Formation> licences;
     private ArrayList<Formation> masters;
 
+    private SettingsFragment settingsFragment;
+
     @Override
-    protected Long doInBackground(Void... params) {
+    protected Long doInBackground(Object... params) {
+
+        settingsFragment = (SettingsFragment) params[0];
+
         try {
             Document doc = Jsoup.connect(urlEdt).get();
             Elements selects = doc.select("select");
@@ -54,6 +60,7 @@ public class Formations extends AsyncTask<Void, Void, Long> {
     }
 
     protected void onPostExecute(Long result) {
-
+        settingsFragment.setLicences(licences);
+        settingsFragment.setMasters(masters);
     }
 }

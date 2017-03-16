@@ -53,4 +53,14 @@ public class Formation {
     public void setUrlFormation(String urlFormation) {
         this.urlFormation = urlFormation;
     }
+
+    @Override
+    public String toString() {
+        return "Formation{" +
+                "urlGroupe='" + urlGroupe + '\'' +
+                ", urlFormation='" + urlFormation + '\'' +
+                ", formation='" + formation + '\'' +
+                ", groupe='" + groupe + '\'' +
+                '}';
+    }
 }
