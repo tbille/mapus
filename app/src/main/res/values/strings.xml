@@ -37,6 +37,9 @@
     <string name="ok_calendar">Valider</string>
     <string name="back_anomalie">Annuler</string>
     <string name="confirm_anomalie">Envoyer</string>
+    <string name="fleche">→</string>
+
+
     <string name="anomalie_degree_1">Confort</string>
     <string name="anomalie_degree_2">Problème</string>
     <string name="anomalie_degree_3">Danger</string>
@@ -54,5 +57,4 @@
     <string name="master_placeholder">Sélectionnez votre master</string>
     <string name="groupe_placeholder">Sélectionnez votre groupe</string>
     <string name="refresh_edt_btn">Récupérer l\'emploi du temps</string>
-    <string name="fleche">→</string>
 </resources>
