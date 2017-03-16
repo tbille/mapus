@@ -39,9 +39,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.google.android.gms.vision.barcode.Barcode;
+import com.m2dl.mapus.mapus.model.DatePickerDialogFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,  DatePickerDialogFragment.DatePickerDialogListener  {
 
     private Toolbar toolbar;
 
@@ -135,7 +136,8 @@ public class MainActivity extends AppCompatActivity
                 changeFragment(occupationRuFragment);
                 break;
             case R.id.nav_edt:
-                EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance("Var 1", "Var 2");
+                Date date = new Date();
+                EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance(date.toString());
                 changeFragment(emploiDuTempsFragment);
                 break;
             case R.id.nav_qrcode:
@@ -283,5 +285,12 @@ public class MainActivity extends AppCompatActivity
                 return;
             }
         }
+    }
+
+    @Override
+    public void onDialogPositiveClick(DatePickerDialogFragment dialog) {
+        Log.d("DATE", "onDialogPositiveClick: " + dialog.getDate());
+        EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance(dialog.getDate().toString());
+        changeFragment(emploiDuTempsFragment);
     }
 }
