@@ -108,11 +108,11 @@ public class EventDataSource {
         return event;
     }
 
-    public List<Event> getEventByDate(Date date) {
+    public ArrayList<Event> getEventByDate(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int week = cal.get(Calendar.WEEK_OF_YEAR);
-        int dayOfWeek = (cal.get(Calendar.DAY_OF_WEEK) - 1) % 7;
+        int dayOfWeek = (cal.get(Calendar.DAY_OF_WEEK) - 2) % 7;
 
         String whereClause = db.COLUMN_WEEK_NUMBER + " = " + String.valueOf(week)
                 +" AND "+ db.COLUMN_DAY + " = " + String.valueOf(dayOfWeek);
@@ -121,7 +121,7 @@ public class EventDataSource {
                 Database.TABLE_EVENTS,
                 allColumns, whereClause, null, null, null, null);
 
-        List<Event> events = new ArrayList<Event>();
+        ArrayList<Event> events = new ArrayList<Event>();
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

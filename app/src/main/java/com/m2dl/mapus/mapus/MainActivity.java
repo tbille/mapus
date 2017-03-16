@@ -298,7 +298,8 @@ public class MainActivity extends AppCompatActivity
 
     public void edtIsDownload() {
         edtIsInit = true;
-        EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance("Var 1", "Var 2");
+        Date date = new Date();
+        EmploiDuTempsFragment emploiDuTempsFragment = EmploiDuTempsFragment.newInstance(date.toString());
         changeFragment(emploiDuTempsFragment);
     }
 

@@ -12,26 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="Date du jour"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/jour"
-            android:background="@color/common_google_signin_btn_text_dark_default"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textStyle="normal|bold"
-            android:padding="10dp" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Date du jour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/jour"
+                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_arrow_drop_down_black_48dp"
+                android:id="@+id/arrow_down_button"
+                android:background="@color/common_google_signin_btn_text_dark_default" />
+        </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/divider2"
-            android:id="@+id/imageView2" />
+            android:id="@+id/imageView2"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="-10dp" />
 
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:dividerHeight="10dp"
             android:background="@color/common_google_signin_btn_text_dark_default"
             android:divider="@drawable/divider2"

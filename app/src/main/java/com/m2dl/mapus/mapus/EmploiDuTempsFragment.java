@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.text.Text;
+import com.m2dl.mapus.mapus.database.EventDataSource;
 import com.m2dl.mapus.mapus.edt.EmploiDuTempsAdapter;
 import com.m2dl.mapus.mapus.model.DatePickerDialogFragment;
 import com.m2dl.mapus.mapus.model.Event;
@@ -72,23 +74,21 @@ public class EmploiDuTempsFragment extends Fragment {
         TextView jour = (TextView) view.findViewById(R.id.jour);
         Date trueDate = new Date(date);
         jour.setText(dateFormat.format(trueDate));
-        jour.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatePickerDialogFragment popup = new DatePickerDialogFragment();
                 popup.show(getActivity().getFragmentManager(), "calendar");
             }
-        });
+        };
+        jour.setOnClickListener(listener);
+        ImageView flecheDown = (ImageView) view.findViewById(R.id.arrow_down_button);
+        flecheDown.setOnClickListener(listener);
 
         ListView list = (ListView) view.findViewById(R.id.list);
-        // Defined Array values to show in ListView
-        ArrayList<Event> dataModels= new ArrayList<>();
-
-        dataModels.add(new Event(0, "10h-12h", "10h", "12h", "", "", 1, "EVPC", "G1", "U4-300", "coucou"));
-        dataModels.add(new Event(0, "14h-16h", "14h", "16h", "", "", 1, "EPRO", "G1", "U4-300", "coucou"));
-        dataModels.add(new Event(0, "16h-18h", "16h", "18h", "", "", 1, "Anglais", "G1", "U4-300", "coucou"));
-        dataModels.add(new Event(0, "18h-00h", "18h", "00h", "", "", 1, "O'Clock", "G1", "U4-300", "coucou"));
-
+        EventDataSource eventDataSource = new EventDataSource(getContext());
+        eventDataSource.open();
+        ArrayList<Event> dataModels = eventDataSource.getEventByDate(trueDate);
         EmploiDuTempsAdapter adapter= new EmploiDuTempsAdapter(dataModels,getContext());
         list.setAdapter(adapter);
         return view;
